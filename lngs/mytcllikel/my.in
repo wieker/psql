@@ -1,0 +1,10 @@
+recoretop substitute 'exec_subexpr'
+recoretop word 'word'
+recoretop ctx 'ctx'
+
+recore op 'opop_unirun'
+recore number 'calc_number'
+
+ctx 'qscript_ctx'
+
+[op [number 12]] 

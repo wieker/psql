@@ -1,0 +1,49 @@
+linear root := prog;
+
+linear prog := [ statement ];
+select statement := defun typedef;
+linear defun := type body;
+
+select type := integer float string char boolean tuple function name;
+linear integer := "int";
+linear float := "float";
+linear string := "str";
+linear char := "char";
+linear boolean := "bool";
+linear tuple := "[" type type "]";
+linear function := [ type ] "=>" type;
+tstring name;
+
+linear typedef := "typedef" name type;
+
+linear body := name [ name ] ":=" expression;
+linear expression := operation "where" "{" [ body ] "}"
+
+select operation := funcall ifelse cast value;
+select value := linteger lfloat lstring lchar lboolean ltuple lfunction;
+select cast := inttostr strtoint floattostr strtofloat
+				chartostr strtochar intobool booltoint;
+linear := inttostr operation;
+linear := strtoint operation;
+linear := floattostr operation;
+linear := strtofloat operation;
+linear := chartostr operation;
+linear := strtochar operation;
+linear := intobool operation;
+linear := booltoint operation;
+
+linear linteger := "int" intr;
+integer intr;
+number float;
+stdbe "`" "'" lstring;
+stdbe "'" "'" lchar;
+linear lboolean := boolconst;
+select boolconst := true false;
+linear true := "true";
+linear false := "false";
+linear ltuple := "[" operation operation "]";
+
+linear lfunction := "sub" [ name ] operation;
+
+linear funcall := name "(" [ operation ] ")";
+linear ifelse := "if" operation "then" operation "else" operation;

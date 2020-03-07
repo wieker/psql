@@ -1,0 +1,23 @@
+linear root := [ genrule ];
+
+select genrule := selrule linrule;
+
+linear selrule := "{" [ choiced ] "}" name;
+linear choiced := name number;
+tstring name;
+tnumber number;
+
+linear linrule := name "{" [ linv ] "}";
+select linv := raw ci int string correlate repeate name;
+specq "'" raw;
+linear correlate := "correlate" space integer name;
+linear ci := "ci" raw;
+integer integer;
+
+linear int := "int" space integer space integer space integer;
+linear string := "str" space integer space integer name;
+
+linear repeate := "repeate" space integer space integer name;
+
+space space;
+

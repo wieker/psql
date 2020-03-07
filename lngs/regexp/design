@@ -1,0 +1,25 @@
+компилятор регекспов.
+
+может использоваться в токенизере.
+грамматика такая:
+regexp := [ expr ] modifier;
+expr := base repeater;
+select base:= character escape selector bracket
+
+linear bracket := "(" [expr] ")";
+linear selector := "[" not_mod [expr] "]";
+select not_mod := neg empty;
+tone neg := "^";
+tone empty := "";
+
+onenotsymb "\()[]" character;
+escsymb "\()[]{}*?+" escape;
+
+select repeater := any more case diap;
+tone any := "*";
+tone any := "+";
+tone any := "?";
+
+linear diap := "{" nullnumb "," nullnumb "}";
+select nullnumb := integer null;
+integer integer;

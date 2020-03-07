@@ -1,0 +1,64 @@
+linear root := [ statement ];
+
+linear statement := rstatement;
+select rstatement := defun typedef operation;
+linear defun := type body;
+
+select type := function integer float string char boolean tuple name;
+linear integer := "int";
+linear float := "float";
+linear string := "str";
+linear char := "char";
+linear boolean := "bool";
+linear tuple := "[" type type "]";
+linear function := "(" [ type ] "=>" type ")";
+tstring name;
+
+linear typedef := "typedef" name type;
+
+linear body := name [ name ] ":=" expression;
+linear expression := operation [ where ];
+linear where := "where" "{" [ body ] "}";
+
+select operation := sugar nonsugar;
+select nonsugar := funcall ifelse cast value;
+
+linear funcall := "(" operation [ operation ] ")";
+linear ifelse := "if" operation "then" operation "else" operation;
+select value := linteger lfloat lstring lchar lboolean ltuple lfunction name;
+select cast := inttostr strtoint floattostr strtofloat
+				chartostr strtochar intobool booltoint;
+linear inttostr := "inttostr" operation;
+linear strtoint := "strtoint" operation;
+linear floattostr := "floattostr" operation;
+linear strtofloat := "strtofloat" operation;
+linear chartostr := "chartostr" operation;
+linear strtochar := "strtochar" operation;
+linear intobool := "intobool" operation;
+linear booltoint := "booltoint" operation;
+
+linear linteger := "int" intr;
+integer intr;
+tnumber lfloat;
+stdbe "`" "'" lstring;
+stdbe "'" "'" lchar;
+linear lboolean := boolconst;
+select boolconst := true false;
+linear true := "true";
+linear false := "false";
+select ltuple := tuplec tupleh tuplet;
+linear tuplec := "[" operation operation "]";
+linear tupleh := "head" operation;
+linear tuplet := "tail" operation;
+
+linear lfunction := "sub" [ name ] "(" expression ")";
+
+select sugar := text arith;
+select text := concat;
+linear concat := "++" nonsugar operation;
+select arith := plus minus less more equal;
+linear plus := "+" nonsugar operation;
+linear minus := "-" nonsugar operation;
+linear less := "<" nonsugar operation;
+linear more := ">" nonsugar operation;
+linear equal := "==" nonsugar operation;

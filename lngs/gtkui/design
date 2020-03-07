@@ -1,0 +1,8 @@
+1. widget {  };
+
+linear widget := "widget" name "{" widget_element "}";
+
+select widget_element := child property event;
+linear child := widget;
+
+linear property

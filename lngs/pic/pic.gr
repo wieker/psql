@@ -1,0 +1,17 @@
+linear root := image;
+
+linear image := [ object ];
+
+select object := color point line triangle objectdecl reference;
+
+linear objectdecl := "object" name "{" object "}";
+
+linear point := "point" number number;
+linear line := "line" point point;
+linear triangle := "triangle" point point point;
+linear reference := name;
+
+tstring name;
+tnumber number;
+
+linear color := "color" number number number;

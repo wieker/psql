@@ -1,0 +1,14 @@
+linear root := crystal;
+
+linear crystal := [ opdef ];
+select opdef := operation definition;
+
+select definition := polyedre edge dot;
+linear polyedre := "polyedre" name [ name ] ";" ;
+linear edge := "edge" name  name name;
+linear dot := "dot" name number number number;
+
+tstring name;
+tnumber number;
+
+linear operation := "null";

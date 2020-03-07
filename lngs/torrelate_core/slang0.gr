@@ -1,0 +1,31 @@
+
+linear root:=slang;
+linear slang:=[template];
+
+linear template := "template" cptname action_list;
+linear action_list := "{" [action] "}";
+tstring cptname;
+
+linear action := path "=>" transform ";";
+
+linear path:=[absolute] relative;
+linear absolute := "/";
+
+linear relative := [step] element;
+linear step := element "/";
+
+linear element:= prefix axis ":" tag;
+tstring tag;
+select axis := prev next child parent;
+tone prev := "prev";
+tone next := "next";
+tone child := "child";
+tone parent := "parent";
+select prefix := foreach null;
+tone null := "";
+linear foreach := "foreach";
+
+select transform := print action;
+linear print := "print";
+
+

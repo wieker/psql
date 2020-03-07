@@ -1,0 +1,35 @@
+linear root := grammar;
+
+linear grammar := [ rule ];
+
+select rule := lop rop linear select tone tnumber tstring quoted;
+
+linear linear := "linear" name ":=" [ symspec ] ";";
+
+linear select := "select" selelem ":=" [ name ] ";";
+
+select selelem := name token;
+
+select symspec := name token more_name;
+
+linear more_name := "[" name "]";
+
+linear lop := "left" name ":=" [ name ] ";";
+
+linear rop := "right" name ":=" [ name ] ";";
+
+tstring name;
+
+linear tone := "tone" name ":=" token ";";
+
+quoted token;
+
+linear tstring := "tstring" name ";";
+
+linear tnumber := "tnumber" name ";";
+
+linear quoted := "quoted" name ";";
+
+
+
+

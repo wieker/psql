@@ -1,0 +1,47 @@
+param = option NL subparam_list
+subparam = SPACES name SPACES TYPE "ost" NL
+
+1. NT
+2. ST
+3. CT
+
+для каждого терминала список действий
+1. бесконечные списки атрибутов.
+2. варианты атрибутов. поиск атрибутов.
+3. новые модели текста.
+
+списки действий для шаблонов терминалов. грамматики второго порядка
+1. mainterm.
+2. exist subterm
+3. eist CT value is
+4. count subterm
+
+вероятностные, не полностью распознанные строки.
+сжатие
+
+трансформация. шаблон в дереве -> шаблон в дереве
+
+грамматика описания языка.
+1. грамматика.
+2. действия.
+
+statement -> term_desc
+statement -> selector operatons
+
+term_desc -> nt_term
+term_desc -> nt_term
+
+st_term -> regexp
+nt_term -> nt_name COLON [nt_name | term]
+
+struct GT
+general_parse {
+	while get_sub_term {
+		try_parse_subterm
+	}
+}
+
+grammar_executor = general_parser
+
+1. генератор компилятора
+2. библиотека обхода AST

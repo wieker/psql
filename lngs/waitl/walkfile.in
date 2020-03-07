@@ -1,0 +1,8 @@
+
+init first
+
+state first ## second send #ls
+#
+
+state second #[0-9]+-[0-9]+-[0-9]+# second ( sendv send #
+# )

@@ -1,0 +1,69 @@
+
+
+linear root := program;
+
+linear program := [ operator ];
+
+select operator := op_semicolon op_list op_simple op_if
+		op_while;
+
+linear op_semicolon := ";";
+
+linear op_list := "{" [ operator ] "}";
+
+linear op_simple := operation ";";
+
+linear op_if := "if" "(" operation ")" operator;
+
+linear op_while := "while" "(" operation ")" operator;
+
+left operation := assign assign_tok;
+tone assign_tok := "=";
+
+linear assign := lvalue "=" ostassign;
+select ostassign := assign expression;
+
+select expression := logic_expr integer_expr double_expr string_expr;
+select comparable := integer_expr double_expr string_expr;
+
+linear logic_expr := andor;
+
+left andor := not andor_tok;
+select andor_rok := and_tok or_tok;
+tone  and_tok := "and";
+tone  or_tok := "or";
+
+linear not := [ not_tok ] compare;
+tone not_tok := "not";
+
+linear compare := comparable [ ostcompare ];
+linear ostcompare := compare_tok comparable;
+
+linear integer_expr := sum;
+linear double_expr := sum;
+linear string_expr := sum;
+left sum := prod sum_tok;
+select sum_tok := plus_tok minus_tok;
+tone  plus_tok := "+";
+tone  minus_tok := "-";
+
+left prod := pow prod_tok;
+select prod_tok := mul_tok div_tok;
+tone  mul_tok := "*";
+tone  div_tok := "/";
+
+left pow := value prod_tok;
+select prod_tok := mul_tok div_tok;
+tone  mul_tok := "*";
+tone  div_tok := "/";
+
+linear value := double integer string rvalue brackets;
+
+tnumber double;
+tnumber integer;
+quoted string;
+
+linear lvalue := name;
+linear rvalue := name;
+
+linear brackets := "(" [ operation ] ")";

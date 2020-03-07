@@ -1,0 +1,8 @@
+
+stage root
+target { targets = list targets target $1.name; }
+init { first = $1.name }
+
+
+stage targets first
+

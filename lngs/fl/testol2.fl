@@ -1,0 +1,56 @@
+
+
+
+int
+const := int 10
+
+int
+prod a b := if a then + (prod - a int 1 b) b else 0
+
+int
+showtail a b := if b then (showtail tail a - b int 1) else head a
+
+int
+arr a := + 2 a
+
+
++ (arr int 2) (arr int 3)
+
+(prod int 7 int 2)
+
+tail [int 1 int 2]
+
+int
+linc a b := [ + head a b (linc (tail a)) ]
+
+int
+natural := [ int 0 (linc (natural) 1) ]
+
+(showtail [int 1 [int 2 [int 3 int 4]]] int 2)
+
+(showtail natural 3)
+
+int
+node a b := [ a b ]
+
+int
+showtail a b := if b then (showtail tail a - b int 1) else head a
+
+int
+linc a b := [ + head a b (linc tail a) ]
+
+int
+natural := [ int 0 sub qq ( ( linc natural int 1 ) ) ]
+
+int
+chisl a := [ a a ]
+int
+crcr a := [ a ( crcr int 0 ) ]
+
+(showtail ( chisl int 3 ) int 0)
+
+(showtail [int 1 [int 2 [int 3 int 4]]] int 1)
+
+
+
+

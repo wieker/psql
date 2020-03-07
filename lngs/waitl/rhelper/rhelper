@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+echo rhelper_on
+
+while read line; do
+	if [ -$line == -script ]; then
+		read line;
+		cp /tmp/$line .;
+		chmod +x ./$line;
+		read param;
+		echo Started...
+		./$line $param;
+		code=$?;
+		echo Finished
+		echo resultcode$code;
+	elif [ -$line == -spawn ]; then
+		read line
+		read param;
+		line=$( echo $line | sed "s/\"//g" )
+		$line $param;
+	fi
+done
+

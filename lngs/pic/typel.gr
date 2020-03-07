@@ -1,0 +1,22 @@
+linear root := [ inference ];
+
+select inference := atom complex comment self;
+
+linear atom := "atom" name type reader;
+
+tstring name;
+tstring type;
+specq "'" reader;
+specq "'" recognitor;
+specq "'" executor;
+specq "'" caster;
+
+linear complex := "complex" name "{" casts "}";
+linear casts := [ cast ];
+linear cast := [ castrec ] recognitor type executor;
+linear castrec := type recognitor caster;
+
+stdbe "#" "
+" comment;
+
+linear self := "self" name recognitor executor;

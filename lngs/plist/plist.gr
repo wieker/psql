@@ -1,0 +1,24 @@
+linear root := xml;
+
+linear xml := xmlhdr xmlbody;
+linear xmlhdr := xmltag [ doctype ];
+
+linear xmltag := "<?xml" [ param ] "?>";
+linear doctype := "<!DOCTYPE" inside ">";
+notsymb ">" inside;
+
+linear xmlbody := [ internal ];
+select tag := simple complex;
+
+linear simple := solid "<" name [ param ] "/>";
+
+linear complex := solid "<" name [ param ] ">" [ internal ] "</" name ">";
+select internal := text tag;
+
+linear param := name "=" quoted;
+
+quoted quoted;
+tstring name;
+notsymb "<" text;
+space space;
+negative solid space;

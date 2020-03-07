@@ -1,0 +1,8 @@
+
+def neuralnet := vector layer;
+def layer := vector neuron;
+
+def neuron {
+	function activation := nonlin(scalar(params, input));
+	input := container:layer/neighbour:prev/content:*/content:activation;
+}

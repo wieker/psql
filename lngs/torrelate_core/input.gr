@@ -1,0 +1,13 @@
+linear root := text;
+
+linear text := [ line ];
+linear line := line_body eol;
+tendl eol;
+
+linear line_body := [ field ];
+linear field := [ field_sep ] non_eol fieldval;
+
+tstring fieldval;
+linear field_sep := " ";
+
+negative non_eol eol;

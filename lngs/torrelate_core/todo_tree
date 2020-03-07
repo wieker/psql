@@ -1,0 +1,38 @@
+
+необходимы следующие функции по работе с аттрибутеными деревьями:
+
+1. struct attnode* attnode(char* name)
+создает node с именем name.
+DONE: pgen
+
+2. void attnode_add_subtree(struct attnode* attnode, struct attnode* subtree)
+добавляет поддерево в node
+DONE: pgen
+
+3. void attnode_add_attr(struct attnode* attnode, struct att_attr* attr)
+добавляет аттрибут в node
+DONE: pgen
+
+4. struct att_attr* att_attr(char* name, attr_type* type, void* value)
+создает аттрибут
+DONE: pgen
+
+5. char* atree_get_attr(struct attnode* node, char* name)
+возвращает текстовый атрибут по имени
+DONE: atrans
+
+6. struct attnode* atree_subtree(struct attnode* node, int N)
+возвращает субдерево по индексу ($1 .. $N)
+DONE: atrans
+
+7. void attnode_add_subtree_N(struct attnode* attnode, struct attnode* subtree, int N)
+TODO!
+добавляет субдерево с номером. как заполнять дырки?
+или просто добавляем внутрь? или для каждого поддерева устанавливать его
+порядок в аттрибуте?
+
+8. int next_node(int axis, char* name, struct attnode** currresult)
+TODO!
+находит следующий элемент по указанной оси.
+
+

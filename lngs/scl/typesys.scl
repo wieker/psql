@@ -1,0 +1,184 @@
+root {
+	## C treew_vartable_init(\i)
+	\1
+}
+
+code {
+	## C type_assign_operation_one_or_two(\i'operator')
+}
+
+opop {
+	\1
+	## C treew_set_text_attr(\i'type''voidOP')
+	## C treew_set_text_attr(\i'statusA''done')
+}
+
+operation {
+	\1
+	## C type_assign_derive(\i)
+	## C treew_set_text_attr(\i'statusA''done')
+}
+
+comma {
+	## C type_assign_operation_one_or_two(\i'brackets')
+}
+
+ostcomma {
+	\1
+	## C type_assign_derive(\i)
+}
+
+assign {
+	## C type_assign_operation_one_or_two(\i'sum')
+}
+
+andor {
+	## C type_assign_operation_one_or_two(\i'logic')
+}
+
+and {
+	\1
+	## C type_assign_derive(\i)
+}
+
+or {
+	\1
+	## C type_assign_derive(\i)
+}
+
+not {
+	\1
+	## C type_assign_derive(\i)
+}
+
+compare {
+	## C type_assign_operation_one_or_two(\i'compare')
+}
+
+equal {
+	\1
+	## C type_assign_derive(\i)
+}
+
+less {
+	\1
+	## C type_assign_derive(\i)
+}
+
+more {
+	\1
+	## C type_assign_derive(\i)
+}
+
+sum {
+	## C type_assign_operation_one_or_two(\i'sum')
+}
+
+plus {
+	\1
+	## C type_assign_derive(\i)
+}
+
+minus {
+	\1
+	## C type_assign_derive(\i)
+}
+
+prod {
+	## C type_assign_operation_one_or_two(\i'prod')
+}
+
+mul {
+	\1
+	## C type_assign_derive(\i)
+}
+
+div {
+	\1
+	## C type_assign_derive(\i)
+}
+
+negative {
+	\1
+	## C type_assign_derive(\i)
+}
+
+
+string {
+	## C treew_set_text_attr(\i'type''string')
+}
+
+integer {
+	## C treew_set_text_attr(\i'type''integer')
+}
+
+float {
+	## C treew_set_text_attr(\i'type''float')
+}
+
+null {
+	## C treew_set_text_attr(\i'type''fatal')
+}
+
+semicolon {
+	## C treew_set_text_attr(\i'type''voidOP')
+	## C treew_set_text_attr(\i'statusA''doneEMPTY')
+}
+
+oplist {
+	## C type_assign_operation_one_or_two(\i'operator')
+	## C treew_set_text_attr(\i'statusA''doneLIST')
+}
+
+if {
+	\1
+	\2
+	## C treew_set_text_attr(\i'type''voidOP')
+	## C treew_set_text_attr(\i'statusA''doneLIST')
+}
+
+while {
+	\1
+	\2
+	## C treew_set_text_attr(\i'type''voidOP')
+	## C treew_set_text_attr(\i'statusA''doneLIST')
+}
+
+
+
+def {
+	## C type_assign_look_def(\i)
+}
+
+pow {
+	## C type_assign_operation_one_or_two(\i'sum')
+}
+
+brackets {
+	## C type_assign_operation_one_or_two(\i'brackets')
+	## C treew_set_text_attr(\i'statusA''doneBR')
+}
+
+name {
+	## C type_assign_look_name(\i)
+}
+
+lvalue {
+	## C type_assign_look_lvalue(\i)
+}
+
+typename {
+	## C type_assign_look_typename(\i)
+}
+
+function {
+	## C type_assign_look_function(\i)
+}
+
+ccall {
+	## C type_assign_look_ccall(\i)
+}
+
+funcall {
+	## C type_assign_look_funcall(\i)
+}

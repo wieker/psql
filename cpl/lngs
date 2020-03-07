@@ -1,0 +1,11 @@
+tcl, sql, sh, js
+работа с грамматиками, деревьями.
+
+Tcl syntax:
+operator -> funcall params
+param -> literal
+param -> $varname
+param -> {string}
+param -> "words"
+param -> [operators]
+

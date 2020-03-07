@@ -1,0 +1,28 @@
+linear root := rules;
+linear rules := [template];
+
+linear template := "template" tplmatch tplactions;
+
+linear tplactions := "{" [tplaction] "}";
+select tplaction := return new assign;
+
+linear return := "return" var;
+linear new := varname "=" "new" symname;
+linear assign := var "=" var;
+
+select var := varthis varlazy varexec varvalue;
+linear varthis := "$." varspec;
+linear varlazy := "$$" varspec;
+linear varexec := "$" varspec;
+linear varvalue := varspec;
+
+linear varspec := [ varselector ] varname;
+linear varselector := pathstep ".";
+
+tstring varname;
+tstring symname;
+select pathstep := arrayel varname;
+linear arrayel := varname "[" number "]";
+tnumber number;
+
+tplmatch := "\"" varspec "\"";

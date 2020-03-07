@@ -1,0 +1,24 @@
+
+
+
+int
+const := int 10
+
+int
+arr a := a
+
+int 10
+(const)
+(arr int 5)`ererer'`qq'++`erererggff'
+
+int 6
++ int 6 int 1
++ int 1 (const)
++ (arr int 2) int 2
+
+int
+display a n := if n then (display tail a - n int 1) else head a
+
+int 8
+
+(display [int 1 [int 2 [int 3 [int 4 [int 5 int 6]]]]] int 5)

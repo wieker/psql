@@ -1,0 +1,3 @@
+
+
+template root { child:field => foreach next:field => print; ; }

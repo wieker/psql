@@ -1,0 +1,17 @@
+dot A 0 0 0
+dot B 1 0 0
+dot C 0.5 1 0
+dot D 0.5 0.5 1
+
+edge ab A B
+edge ac A C
+edge ad A D
+edge bc B C
+edge bd B D
+edge cd C D
+
+polyedre abcd ab ac ad bc bd cd;
+
+
+
+

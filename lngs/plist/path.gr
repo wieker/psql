@@ -1,0 +1,38 @@
+linear root := paths;
+
+linear paths := [ line ];
+select line := path comment;
+
+stdbe "\" "
+" comment;
+
+linear path := anchor [ step ] "=>" action;
+
+select anchor := rootlbl restart null;
+tone null := "";
+tone rootlbl := "/";
+tone restart := "#";
+
+linear step := tagname;
+tstring tagname;
+
+select action := actionlist write add change empty path;
+linear actionlist := "(" [ action ] ")";
+
+tstring actionname;
+
+linear write := "write" space "[" [ wrsymb ] "]";
+select wrsymb := escaped symb;
+notsymb "\[]" symb;
+select escaped := specesc printesc;
+escsymb "$0123456789" specesc;
+escsymb "\[]" printesc;
+space space;
+
+linear add := "add" space prms space prms;
+stdbe "[" "]" prms;
+
+linear change := "change";
+
+linear empty := "empty";
+

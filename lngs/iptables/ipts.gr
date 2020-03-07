@@ -1,0 +1,46 @@
+linear root := ipts;
+
+linear ipts := pre nat mangle filter;
+
+stdbe "#" "
+" comment;
+
+stdbe ":" "
+" generic;
+
+stdbe " " " " value;
+
+linear empty := "";
+
+linear pre := [ comment ];
+
+select nat := real_nat empty;
+
+linear real_nat := "*nat
+" [ generic ] [rule] [ comment ] "COMMIT
+" [ comment ];
+
+linear mangle := "*mangle
+" [ generic ] [rule] [ comment ] "COMMIT
+" [ comment ];
+
+linear filter := "*filter
+" [ generic ] [rule] [ comment ] "COMMIT
+" [ comment ];
+
+linear rule := command table [ param ] action;
+
+select param := src dst stat connbytes;
+linear src := "-s" value;
+linear dst := "-d" value;
+linear stat := "-m" "statistic" "--mode" value "--probability" value;
+linear connbytes := "-m" "connbytes" "--connbytes" value "--connbytes-mode" value "--connbytes-dir" value;
+
+select action := drop mark dnat;
+linear drop := "-j DROP";
+linear mark := "-j MARK" "--set-xmark" value;
+linear dnat := "-j DNAT" "--to-destination" value;
+
+linear command := "-A";
+linear table := value;
+

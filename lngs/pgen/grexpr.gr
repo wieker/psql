@@ -1,0 +1,16 @@
+linear root := expr;
+
+linear expr := [ sum ];
+
+left sum := prod sum_ops;
+select sum_ops := plus minus;
+tone plus := "+";
+tone minus := "-";
+
+left prod := value prod_ops;
+select prod_ops := mul div;
+tone mul := "*";
+tone div := "/";
+
+tnumber value;
+

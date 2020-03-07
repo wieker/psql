@@ -1,0 +1,38 @@
+
+
+CPTTYPE NAME := CPT CPT {
+	## setAttr 
+	## setChild
+	## setParent
+	## setVar
+	## allocCtx
+	## cCall
+	## goTree
+	\InternalContext
+	\TreeNode
+	\NodeChild
+	\NodeAttr
+	\nodeType
+	\getVar
+	\getChild
+	\getParent
+	\contextUse
+	
+	** removeAttr
+	** chAttr
+	** addSubTree
+	** rmSubTree
+	** moveSubTree
+	** cutSubTree
+	** pasteSubTree
+	
+	>> echo
+	
+	<< execCode
+	
+	|| interpretCode
+} {
+
+} {
+
+};

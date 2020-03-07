@@ -1,0 +1,6 @@
+linear root := [ widget ];
+
+select widget := window button layout texteditor vspin progress editbox tabs;
+
+
+

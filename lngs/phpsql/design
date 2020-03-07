@@ -1,0 +1,114 @@
+
+
+генератор сайтов - интерфейсов к БД
+генерирует - SQL ядро для инициализации сайта,
+PHP движек и HTML формы.
+
+синтаксис - в форме записей.
+
+book {
+	author[]
+	title
+	year
+	description
+	file[]
+	category[]
+}
+
+category {
+	name
+}
+
+author {
+	name
+}
+
+file {
+	name
+}
+
+book.add()
+file.add()
+category.add()
+author.add()
+
+category.link(book)
+category.link(book[])
+author.link(book)
+author.link(book[])
+file.link(book)
+file[].link(book)
+
+book.link(category)
+book.link(category[])
+book.link(author)
+book.link(author[])
+book.link(file)
+book.link(file[])
+
+book.view(book)
+file.view(book)
+category.view(book[])
+author.view(book[])
+
+book[].view(book)
+file[].view(book)
+category[].view(book[])
+author[].view(book[])
+
+
+OBJDECL := OBJNAME "{" [ OBJFIELD ] "}"
+OBJFIELD := SCALAR | LINK
+LINK := ONELINK | MORELINK
+ONKELINK := OBJNAME
+MORELINK := OBJNAME "[" "]"
+
+PAGEDECL := LINK "." ACTNAME "(" [ ACTARG ] ")"
+
+do_add {
+	gen_html_header();
+	for object.fields {
+		gen_field_form();
+	}
+	gen_html_footer();
+	
+	gen_php_header();
+	for object.fields {
+		gen_php_for_handler();
+	}
+	process_php_sql_query();
+	gen_php_footer();
+}
+
+do_view {
+	gen_html_header();
+	for object.fields {
+		gen_table_column();
+		gen_link_to_param();
+	}
+	gen_html_footer();
+	
+	gen_php_header();
+	for object.fields {
+		gen_php_fill_view();
+		gen_php_fill_link();
+	}
+	process_php_sql_query();
+	gen_php_footer();
+}
+
+do_link {
+	gen_html_header();
+	for object.fields {
+		gen_field_form();
+	}
+	gen_html_footer();
+	
+	gen_php_header();
+	for object.fields {
+		gen_php_for_handler();
+	}
+	process_php_sql_query();
+	gen_php_footer();
+}
+

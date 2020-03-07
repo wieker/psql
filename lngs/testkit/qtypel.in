@@ -1,0 +1,24 @@
+atom grammar void 'quot'
+atom runer void 'quot'
+atom object void 'quot'
+atom stq void 'quot'
+atom dbq void 'quot'
+
+complex calltest {
+	void 'equal' 'equal'
+	void 'equal' 'equal'
+		'equal' void 'calltest'
+}
+
+complex header {
+	void 'equal' 'equal'
+	void 'equal' 'equal'
+	void 'equal' 'equal'
+		'equal' void 'header'
+}
+
+complex command {
+	void 'equal' 'equal'
+	void 'equal' 'equal'
+		'equal' void 'command'
+}

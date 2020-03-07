@@ -1,0 +1,13 @@
+
+defcontext
+
+
+defm CPT_LIST
+
+defm class PARENTS, MEMBER_LIST {
+	foreach p in PARENTS {
+		add_exclusive p in MEMBER_LIST;
+	}
+}
+
+

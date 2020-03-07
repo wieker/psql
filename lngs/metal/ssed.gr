@@ -1,0 +1,12 @@
+linear root := [ ssed ];
+
+linear ssed := "struct" cname cname "=" "{"
+	[ cptdecl ]
+"}" ";";
+
+linear cptdecl := "{" quoted "," cname "}"  ",";
+
+cname cname;
+quoted quoted;
+
+

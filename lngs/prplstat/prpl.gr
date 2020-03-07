@@ -1,0 +1,14 @@
+linear root := records;
+
+linear records := [ record ];
+select record := start stop;
+
+linear start := "(" "start" name date ")";
+linear stop  := "(" "stop" name date ")";
+
+linear name := "(" str str ")";
+linear date := "(" num "-" num "-" num num "-" num "-" num str ")";
+
+tstring str;
+tnumber num;
+

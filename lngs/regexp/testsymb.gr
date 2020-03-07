@@ -1,0 +1,6 @@
+linear root := [ symb ];
+
+select symb := escaped normal integer;
+onenotsymb "G0123456789" normal;
+escsymb "\G" escaped;
+integer integer;

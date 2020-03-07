@@ -1,0 +1,4 @@
+sed "s/.*\\/\\([^\\/]*\\)\$/\\1/"
+sed "s/.*\\\\\\([^\\\\]*\\)\$/\\1/"
+sed "s/.*\\\\\\([^\\\\]*\\)\$/1/"
+abramovich@des-moines-ubuntu:/mnt/ntfs3/cpied/cpl$ 

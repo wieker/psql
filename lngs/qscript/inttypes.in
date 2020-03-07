@@ -1,0 +1,80 @@
+atom name integer 'name_unirun'
+self def 'func_type' 'def_unirun'
+atom number integer 'calc_number'
+
+self function 'func_type' 'function_unirun'
+
+self assign 'left_type' 'assign_unirun'
+
+complex opop {
+	integer 'equal' 'equal'
+		'equal' void 'opop_unirun'
+}
+
+complex semicolon {
+		'equal' void 'recurse'
+}
+
+complex oplist {
+	void 'equal' 'equal'
+	void 'equal' 'equal'
+		'equal' void 'recurse'
+}
+
+complex if {
+	integer 'equal' 'equal'
+	void 'equal' 'equal'
+		'equal' void 'if_unirun'
+}
+
+complex while {
+	integer 'equal' 'equal'
+	void 'equal' 'equal'
+		'equal' void 'while_unirun'
+}
+
+complex comma {
+	integer 'equal' 'equal'
+	integer 'equal' 'equal'
+		'equal' integer 'recurse'
+}
+
+complex not {
+	integer 'equal' 'equal'
+		'equal' integer 'calc_not'
+}
+
+complex sum {
+	integer 'equal' 'equal'
+	integer 'equal' 'equal'
+		'equal' integer 'calc_sum'
+}
+
+complex prod {
+	integer 'equal' 'equal'
+	integer 'equal' 'equal'
+		'equal' integer 'calc_prod'
+}
+
+complex pow {
+	integer 'equal' 'equal'
+	integer 'equal' 'equal'
+		'equal' integer 'calc_pow'
+}
+
+complex compare {
+	integer 'equal' 'equal'
+	integer 'equal' 'equal'
+		'equal' integer 'calc_compare'
+}
+
+complex andor {
+	integer 'equal' 'equal'
+	integer 'equal' 'equal'
+		'equal' integer 'calc_andor'
+}
+
+complex negative {
+	integer 'equal' 'equal'
+		'equal' integer 'calc_negative'
+}

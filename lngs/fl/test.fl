@@ -1,0 +1,45 @@
+
+int
+dplus a b := + a b
+
+int
+tq start step := [ start ( tq ( dplus start step ) step ) ]
+
+int
+showtail a b := if b then (showtail tail a - b int 1) else head a
+
+(showtail (tq int 3 int 2) int 1)
+
+int
+union a b := [ head a (union b tail a) ]
+
+int
+literal a := [ a sub ((undef)) ]
+
+int
+concat a b := [ ++ head a head b (union (postcat tail a b) (union (precat tail b a) (concat tail a tail b))) ]
+
+int
+precat a b := [ ++ b head a (precat tail a b) ]
+
+int
+postcat a b := [ ++ a head b (postcat tail a b) ]
+
+(showtail (union (literal`dfdfdf') (literal`krkr')) int 1)
+
+(showtail
+	(concat
+		(literal`dfdfdf')
+		(literal`krkr'))
+	int 0)
+
+(showtail
+	(concat
+		(union
+			(literal`dfdfdf')
+			(literal`krkr'))
+		(union
+			(literal`dfdfdf')
+			(literal`krkr')))
+	int 1)
+

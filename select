@@ -1,0 +1,25 @@
+get row columns
+set row columns
+add row columns
+del row columns
+
+stat
+
+cursor -> список указателей
+exec_select {
+	while (exec_from(cursor)) {
+		if (exec_cond(cond, cursor)) {
+			exec_expression(cursor)
+			write_expression;
+		}
+	}
+}
+
+parse_select {
+	if (! scan_select())
+		return;
+	scan_expression();
+	scan_from();
+	scan_cond
+}
+

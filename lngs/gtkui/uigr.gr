@@ -1,0 +1,32 @@
+linear root := uidescr;
+
+linear uidescr := [ widget ];
+
+select widget := select container button edlist;
+
+linear select := "select" seltype lstname ";";
+
+select seltype := radio downlist;
+tone radio := "radio";
+tone downlist := "downlist";
+
+linear edlist := "edlist" name [ colname ] ";";
+tstring colname;
+
+
+
+linear container := "container" contype name block;
+
+select contype := tabs tab;
+tone tabs := "tabs";
+tone tab := "tab";
+
+
+
+linear button := "button" name callback ";";
+
+linear block := "{" [ widget ] "}";
+
+tstring name;
+tstring lstname;
+tstring callback;

@@ -1,0 +1,66 @@
+
+linear root := code;
+linear code := [ operator ];
+
+select operator := semicolon oplist if while opop def;
+
+linear opop := operation ";";
+linear semicolon := ";";
+linear oplist := "{" [ operator ] "}";
+linear if := "if" "(" operation ")" operator;
+linear while := "while" "(" operation ")" operator;
+linear def := typename name;
+
+linear operation := comma;
+
+linear comma := rvalue [ ostcomma ];
+linear ostcomma := "," rvalue;
+
+select rvalue := assign andor function;
+linear assign := lvalue "=" rvalue;
+
+linear andor := not [ ostandor ];
+select ostandor := and or;
+linear and := "and" not;
+linear or := "or" not;
+
+linear not := [ nottok ] compare;
+tone nottok := "not";
+
+linear compare := sum [ ostcmp ];
+select ostcmp := equal less more;
+linear equal := "==" sum;
+linear less := "<" sum;
+linear more := ">" sum;
+
+linear sum := prod [ ostsum ];
+select ostsum := plus minus;
+linear plus := "+" prod;
+linear minus := "-" prod;
+
+linear prod := rpow [ ostprod ];
+select ostprod := mul div;
+linear mul := "*" rpow;
+linear div := "/" rpow;
+
+select rpow := pow lowvalue;
+linear pow := lowvalue "^" rpow;
+
+select lowvalue := brackets negative funcall ccall name string integer float;
+linear negative := "-" integer;
+linear brackets := "(" operation ")";
+
+tstring name;
+
+tstring lvalue;
+tstring typename;
+
+linear function := "sub" "{" [ operator ] "}";
+linear ccall := "##" "(" [ name ] ")";
+linear funcall := name "(" [ name ] ")";
+
+quoted string;
+integer integer;
+tnumber float;
+
+tone null := "";

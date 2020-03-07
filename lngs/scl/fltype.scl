@@ -1,0 +1,19 @@
+linteger {
+	## C treew_set_text_attr(\i'type''integer')
+}
+
+lstring {
+	## C treew_set_text_attr(\i'type''string')
+}
+
+lfloat {
+	## C treew_set_text_attr(\i'type''float')
+}
+
+lchar {
+	## C treew_set_text_attr(\i'type''char')
+}
+
+lboolean {
+	## C treew_set_text_attr(\i'type''bool')
+}

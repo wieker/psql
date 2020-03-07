@@ -1,0 +1,36 @@
+linear root := tpls;
+
+linear tpls := [ template ];
+
+linear template := "template" selector "{"
+	null
+"}";
+
+linear selector := first_step [ next_step ];
+linear tree_root := "/";
+linear next_step := "/" step_nonroot;
+
+select first_step := step_nonroot step_root tree_root;
+linear step_nonroot := axis ":" cptname [ array ] "("  ")";
+linear step_root := tree_root step_nonroot;
+
+linear axis := sel_axis;
+select sel_axis := parent ancestor child descendant preceding following;
+tone parent := "parent";
+tone ancestor := "ancestor";
+tone child := "child";
+tone descendant := "descendant";
+tone preceding := "preceding";
+tone following := "following";
+
+linear cptname := sel_cptname;
+select sel_cptname := up this all array element;
+tone up := "..";
+tone this := ".";
+tone all := "*";
+tstring element;
+linear array := "[" array_index "]";
+tnumber array_index;
+
+select pred := "pred";
+tone null := "";

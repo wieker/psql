@@ -1,0 +1,18 @@
+
+operator := op_semicolon | op_list | op_simple | op_elif | op_if | op_while | op_break | op_continue | op_return |
+		op_return_void
+
+op_semicolon := ";"
+op_list := "{" [ operator ] "}"
+
+op_simple := expression ";"
+
+op_elif := "if" "(" expression ")" operator "else" operator
+op_if := "if" "(" expression ")" operator
+op_while := "while" "(" expression ")" operator
+
+op_break := "break" ";"
+op_continue := "continue" ";"
+
+op_return_void := "return" ";"
+op_return := "return" expression ";"

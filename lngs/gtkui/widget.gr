@@ -1,0 +1,24 @@
+linear root := [ line ];
+
+select line := decl struct op;
+
+select decl := window button tabs edit hscale progress self;
+tstring name;
+
+linear struct := name "{" [ line ] "}";
+
+linear op := name "." name "=" value;
+stdbe "'" "'" value;
+
+linear self name name;
+
+linear window := "window" struct;
+linear button := "button" name;
+linear tabs := "tabs" name "{" [ name ] "}";
+
+
+linear edit := "edit" name;
+linear hscale := "hscale" name;
+linear progress := "progress" name;
+
+

@@ -1,0 +1,8 @@
+\plist dict => write  [qwqw \\ \$ GG \12
+\]
+
+\plist => empty
+\plist => add [mytag] [text]
+\plist mytag => write [fgdfdf]
+
+

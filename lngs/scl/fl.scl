@@ -1,0 +1,12 @@
+
+
+intr {
+	## C write_st("li")
+	## C load_const( \V )
+}
+
+lstring {
+	## C write_st("li")
+	## C load_dump ( \V )
+	## C write_st("lea")
+}

@@ -1,0 +1,5 @@
+linear root := json;
+
+linear json := object;
+
+linear object := "{" "}";

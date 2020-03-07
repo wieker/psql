@@ -1,0 +1,53 @@
+linear root := source;
+
+linear source := preheader cptops;
+linear cptops := [ cptop ];
+select preheader := header null;
+linear header := [ directive ];
+
+select directive := loadm;
+linear null := "";
+linear loadm := "loadm" name;
+
+linear cptop := name "{"
+	[ text ]
+"}";
+
+select text := ccall callarg spec symb;
+onenotsymb "}\" symb;
+escsymb "\1234567890$t}#" spec;
+
+tstring name;
+
+linear ccall := "##" "C" cname "(" [ cparam ] ")";
+cname cname;
+
+select cparam := string sqstring rinteger float name attr struct;
+tnumber float;
+quoted string;
+stdbe "'" "'" sqstring;
+linear rinteger := integer notdot;
+onenotsymb "." dot;
+integer integer;
+negative notdot dot;
+
+linear attr := "$"  name;
+linear path := name "[" integer "]" ".";
+select struct := tree subtree ctx input closure inval input_subtree;
+linear tree := "\t";
+linear subtree := "/" integer;
+linear ctx := "\ctx";
+linear closure := "\clo";
+linear input := "\i";
+linear inval := "\V";
+linear input_subtree := "//" integer;
+
+
+linear setvar := "##" "V" name vararg;
+linear setattr := "##" "A" attr name;
+select vararg := attr;
+
+
+linear callarg := "##" "ARG" name;
+
+

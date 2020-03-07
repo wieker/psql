@@ -1,0 +1,26 @@
+
+
+class cpt := left | right | class | linear | token_one | token_number |
+		token_string
+
+linear left := "left" cpt_name ":=" cpt_name token_one(op) [ cpt_name ]
+
+linear right := "right" cpt_name ":=" cpt_name token_one(op) [ cpt_name ]
+
+linear class := "class" cpt_name ":=" class_decl
+left class_decl := cpt_name "|"
+
+linear linear := "linear" cpt_name ":=" cpt_name [ cpt_name ]
+
+
+define CPT type
+
+struct fields {  }
+
+grammar = {  action  }
+
+cpt template
+
+==> C
+
+linear semantics := name "." action "{"  "}";

@@ -1,0 +1,10 @@
+linear root := [ metal ];
+
+tone metatopen := "##%$";
+tone metatenter := "##/##";
+tone metatexit := "##/##";
+
+linear atom := metatopen lngname grammar semfile [ preprocessor ]  metatenter;
+
+
+

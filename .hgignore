@@ -1,0 +1,16 @@
+syntax: glob
+*~
+*.d
+dump_*
+*.o
+*.a
+*.so
+cpl
+exec_expr
+testle
+intle
+a.out
+walk
+*.png
+*.exe
+*.exe.stackdump

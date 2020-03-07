@@ -1,0 +1,32 @@
+linear root := [ myexpr ];
+
+select myexpr := mytopeval;
+select mytopeval := recore recoretop ctx substitute topvar myquote mybr langspec word;
+
+linear substitute := "[" word [ myexpr ] "]";
+
+linear word := [ space ] letter [ letter ];
+onenotsymb " 	
+[$]'{}" letter;
+negative wletter space;
+space space;
+
+linear topvar := "$" word;
+
+linear myquote := "'" [ quotedsymb ] "'";
+select quotedsymb := escaped normal topvar substitute;
+escsymb "\['$" escaped;
+onenotsymb "\['$" normal;
+
+linear mybr := "{" [ brsymb ] "}";
+select brsymb := mybr brallsymb;
+onenotsymb "}" brallsymb;
+
+linear langspec := "####L/\Ngspec";
+linear recore := "recore" cptname funcname;
+linear recoretop := "recoretop" cptname funcname;
+linear ctx := "ctx" funcname;
+specq "'" funcname;
+tstring cptname;
+
+

@@ -1,0 +1,24 @@
+
+
+1. кисть. чем рисовать.
+2. карандаш
+
+кисть - произвольной формы.
+кисть берется из изображения.
+слои - Z координата. alpha канал
+
+кисть применяется преобразованием.
+
+PICTURE := <name> "{" OPERATOR ... "}"
+
+OPERATOR := BRUSH TEXTURE OPERATION LAYER ";"
+
+BRUSH := PARAMETERS PICTURE
+
+
+OBJECT := 
+elop line point triangle cirle polygon
+texture
+
+object
+texture

@@ -1,0 +1,8 @@
+
+
+"declare"
+	"unit" [ alias ] { [ var_decl ] }
+	"side" [ alias ] { [ var_decl ] }
+	"map"  [ alias ] { [ var_decl ] }
+	"alias" alias selector ";"
+	

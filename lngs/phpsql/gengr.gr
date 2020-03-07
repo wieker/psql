@@ -1,0 +1,21 @@
+
+
+linear object  := objname "{" objfield "}";
+
+select objfield := scalar morelink onelink;
+
+linear morelink := objname "[" "]";
+linear onelink := objname;
+linear scalar := "(" name type_name ")";
+
+linear page := page_name objname "." action;
+
+linear action := action_name "(" [ objfield ] ")";
+
+tstring name;
+linear objname := name;
+linear type_name := name;
+linear page_name := name;
+linear action_name := name;
+
+

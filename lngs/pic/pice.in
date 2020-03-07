@@ -1,0 +1,4 @@
+atom point float 'point'
+atom line float 'line'
+atom triangle float 'triangle'
+atom color float 'color'

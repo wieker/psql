@@ -1,0 +1,63 @@
+
+linear root := [ def ] [ operator ];
+
+linear def := "def" name "(" [ name ] ")" "{" body "}";
+linear body := [ operator ];
+
+select operator := semicolon oplist if while opop;
+
+linear opop := operation ";";
+linear semicolon := ";";
+linear oplist := "{" [ operator ] "}";
+linear if := "if" "(" operation ")" operator;
+linear while := "while" "(" operation ")" operator;
+
+linear operation := comma;
+
+left comma := rvalue tokcomma;
+tone tokcomma := ",";
+
+select rvalue := assign andor;
+linear assign := lvalue "=" rvalue;
+
+left andor := not andortoks;
+select andortoks := and or;
+tone and := "and";
+tone or := "or";
+
+linear not := [ nottok ] compare;
+tone nottok := "not";
+
+left compare := sum cmptoks;
+select cmptoks := equal less more;
+tone equal := "==";
+tone less := "<";
+tone more := ">";
+
+left sum := prod sumtoks;
+select sumtoks := plus minus;
+tone plus := "+";
+tone minus := "-";
+
+left prod := pow prodtoks;
+select prodtoks := mul div;
+tone mul := "*";
+tone div := "/";
+
+right pow := lowvalue powtok;
+tone powtok := "^";
+
+tnumber number;
+
+select lowvalue := brackets number negative function name string integer;
+linear negative := "-" number;
+linear brackets := "(" operation ")";
+
+tstring name;
+
+tstring lvalue;
+
+linear function := name "(" [ rvalue ] ")";
+
+quoted string;
+integer integer;

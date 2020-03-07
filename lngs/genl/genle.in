@@ -1,0 +1,12 @@
+atom selrule float 'gen_one_from'
+
+atom name float 'go_name'
+
+atom raw float 'print_raw'
+atom ci float 'print_ci'
+atom int float 'print_int'
+atom string float 'print_str'
+
+atom repeate float 'go_repeate'
+
+

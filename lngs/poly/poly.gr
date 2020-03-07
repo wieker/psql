@@ -1,0 +1,21 @@
+linear root := sum;
+
+linear sum := prod [ ostsum ];
+select sumtoks := plus minus;
+tone plus := "+";
+tone minus := "-";
+linear ostsum := sumtoks sum;
+
+linear prod := highvalue [ ostprod ];
+select prodtoks := mul div;
+tone mul := "*";
+tone div := "/";
+linear ostprod := prodtoks prod;
+
+select highvalue := pow lowvalue;
+
+select lowvalue := brackets integer negative;
+linear negative := "-" lowvalue;
+linear brackets := "(" sum ")";
+linear pow := lowvalue "^" integer;
+integer integer;

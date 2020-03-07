@@ -1,0 +1,43 @@
+linear root := expin;
+
+linear expin := [ defrule ];
+
+linear defrule := "def" rule;
+linear rule := rule_name precond postcond action_list;
+
+linear rule_name := non_eol str;
+tendl eol;
+linear precond := non_eol ":" [ rule_name ] eol;
+linear postcond := non_eol "#" action_tpl;
+linear action_list := non_eol [ action_tpl ] eol;
+
+linear action_tpl := action eol;
+select action := uploadrec rspawn rsend rwait dnld rcall regexp restore walk sendeot ctrlc script raw_script;
+linear action_name := non_eol str;
+
+linear script := [ prefix ] non_eol script_name;
+tstring script_name;
+
+select prefix := local_pfx;
+linear local_pfx := non_eol "local";
+linear uploadrec := non_eol "uploadrec" non_eol quoted;
+linear rspawn := non_eol "rspawn" non_eol quoted;
+linear rsend := non_eol "rsend" non_eol quoted;
+linear rwait := non_eol "rwait" non_eol quoted;
+linear dnld := non_eol "dnld" non_eol quoted;
+linear rcall := non_eol "rcall" non_eol quoted non_eol quoted;
+linear restore := non_eol "restore";
+quoted quoted;
+
+linear raw_script := [ prefix ] non_eol raw;
+
+negative non_eol eol;
+tstring str;
+specq "###" raw;
+
+
+linear regexp := non_eol "regexp" non_eol quoted;
+
+linear walk := non_eol "walk";
+linear sendeot := non_eol "sendeot";
+linear ctrlc := non_eol "ctrlc";

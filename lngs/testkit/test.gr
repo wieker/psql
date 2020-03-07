@@ -1,0 +1,17 @@
+linear root := [ test ];
+
+select test := calltest;
+
+linear calltest := "call" header "{" [ command ] "}";
+specq "'" grammar;
+specq "'" runer;
+linear objects := [ object ];
+specq "'" object;
+
+linear header := grammar runer objects;
+
+linear command := input output ";";
+select input := stq dbq;
+select output := stq dbq;
+specq "'" stq;
+specq "$" dbq;

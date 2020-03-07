@@ -1,0 +1,31 @@
+root {
+	## C treew_vartable_init(\i)
+	\1
+}
+
+integer {
+	## C treew_set_text_attr(\i'type''integer')
+}
+
+string {
+	## C treew_set_text_attr(\i'type''string')
+}
+
+float {
+	## C treew_set_text_attr(\i'type''float')
+}
+
+def {
+	## C treew_set_from_tree(//1'value'\i'stree_1_vartype')
+	## C treew_set_from_tree(//2'value'\i'stree_2_varname')
+	## C treew_vartable_set_from_attr(\i'stree_2_varname''stree_1_vartype')
+	var set
+}
+
+name {
+	
+}
+
+lvalue {
+	
+}

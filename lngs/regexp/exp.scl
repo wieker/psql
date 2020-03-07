@@ -1,0 +1,37 @@
+
+
+atom {
+	struct regtree* t = alloc_exec_tree();
+	
+}
+
+symb {
+	struct regtree* t = alloc_exec_tree();
+	t->match = match_symb;
+	t->symb = '\$';
+}
+
+escaped {
+	struct regtree* t = alloc_exec_tree();
+	t->lambda = match_symb;
+	t->symb = '\$';
+}
+
+
+
+
+linit {
+	enter_linear_mode();
+}
+
+kinit {
+	leave_linear_mode();
+}
+
+rinit {
+	enter_select_mode();
+}
+
+finit {
+	leave_select_mode();
+}

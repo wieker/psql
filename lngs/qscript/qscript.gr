@@ -1,0 +1,23 @@
+linear root := operators;
+
+linear operators := [ operator ];
+
+select operator := while if op semicolon oplist break continue elif return;
+
+linear while := "while" "(" op ")" operator;
+linear if := "if" "(" op ")" operator;
+
+linear semicolon := ";";
+linear oplist := "{" [ operator ] "}";
+
+linear op := comma ";";
+
+left comma := assign tokcomma;
+tone tokcomma := ",";
+
+right assign := andor toksandor;
+select toksandor := rokand tokor;
+tone tokor := "or";
+tone tokand := "and";
+
+

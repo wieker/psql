@@ -1,0 +1,36 @@
+linear root := grammar;
+
+linear grammar := rule tok_semicolon grammar_ost;
+select grammar_ost := grammar null;
+tone tok_semicolon := ";";
+
+select rule := lop rop linear select tone tnumber tstring quoted;
+
+linear linear := tok_linear name tok_def name ost_name;
+tone tok_linear := "linear";
+tone tok_def := ":=";
+select ost_name := name_list null;
+linear name_list := name ost_name;
+tone null := "";
+
+linear select := tok_select name tok_def name ost_name;
+tone tok_select := "select";
+
+linear lop := tok_lop name tok_def name ost_name;
+tone tok_lop := "left";
+
+linear rop := tok_rop name tok_def name ost_name;
+tone tok_rop := "right";
+
+tstring name;
+linear tone := tone_tok name tok_def token;
+tone tone_tok := "tone";
+quoted token;
+linear tstring := tstring_tok name;
+tone tstring_tok := "tstring";
+linear tnumber := tnumber_tok name;
+tone tnumber_tok := "tnumber";
+linear quoted := quoted_tok name;
+tone quoted_tok := "quoted";
+
+

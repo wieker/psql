@@ -1,0 +1,6 @@
+1. cdump - recursive structues parser and dumper
+2. cstruct
+	на входе - набор C структур
+	грамматика языка входа
+	маппинг структура -> язык
+	служебная информация

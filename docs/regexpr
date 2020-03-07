@@ -1,0 +1,48 @@
+Простой компилятор регекспов
+Нет никакого КМП (следовательно примитивно и не производительно)
+Никакой оптимизации
+
+низкоуровневая машина%
+if (currl == rl) {
+	if (currl == rl 
+}
+
+rl begin end fail
+
+linear select ... { fail x -> return fail }
+select linear ... { fail x -> x + 1 }
+
+rl letter
+rs letter
+
+read-jump-fail
+read-jump-succ
+читают указанный символы и в случае успеха (неудачи) перепрыгивают
+в другое дерево
+
+read-jump letter addr
+
+                            linear
+                   /         |       \
+           select          select     select
+       /     \             /     \          |         \
+(0: rjs 3) (1: rjs 3) (2: 
+
+
+lalab
+
+rjs l 1
+rjs a 2
+rjs l 0
+rjf a 0
+rjf b 2
+ok
+
+A -> x B
+
+li
+eq
+range
+read
+
+

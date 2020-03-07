@@ -1,0 +1,37 @@
+linear root := walk;
+
+linear walk := [ op ];
+
+select op := state init receiver deep times;
+linear init := "init" statename;
+
+linear state := "state" statename statedescr;
+
+linear statedescr := [ choice ];
+linear choice := qtd statename action;
+
+select qtd := qtdsharp qtdquote qtdsingle qtdslash qtdpercent;
+specq "#" qtdsharp;
+specq "\"" qtdquote;
+specq "'" qtdsingle;
+specq "/" qtdslash;
+specq "%" qtdpercent;
+
+tstring statename;
+
+select action := actionlist send cb sendv sendf sleep forwardl incdep;
+linear actionlist := "(" [ action ] ")";
+
+linear send := "send" qtd;
+linear cb := "cb" qtd;
+linear sendv := "sendv";
+linear sendf := "sendf";
+linear sleep := "sleep";
+
+linear forwardl := "forwardl";
+linear receiver := "receiver" qtd;
+linear deep := "deep" number;
+tnumber number;
+
+linear incdep := "incdep";
+linear times := "times" number;

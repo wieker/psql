@@ -1,0 +1,15 @@
+linear root := sum;
+
+left sum := prod sum_tok;
+left prod := value prod_tok;
+
+select sum_tok := plus_tok minus_tok;
+select prod_tok := mul_tok div_tok;
+tone plus_tok := "+";
+tone minus_tok := "-";
+tone div_tok := "/";
+tone mul_tok := "*";
+
+select value := number brackets;
+tnumber number;
+linear brackets := "(" sum ")";

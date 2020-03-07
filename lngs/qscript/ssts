@@ -1,0 +1,11 @@
+SSTS
+simple(stupid) structured type system
+
+var: attrs; attr = var
+atom: string list tuple array struct integer number char record function production pointer reference
+
+struct : string -> variable
+array : integer production -> variable
+
+object class
+

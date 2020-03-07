@@ -1,0 +1,60 @@
+1. арифметика
+2. сравнения.
+3. логические операции.
+4. типы данных.
+
+parse_expression
+	parse_constant #
+	parse_column #
+	parse_subscript -
+	parse_field -
+	parse_operator #
+	parse_func #
+	parse_aggregate -
+	parse_window -
+	parse_cast -
+	parse_array -
+	parse_row #
+
+1 + 2 * 3
+
+2 3 * 1 +
+
+stack.push(a)
+stack.
+
+# row
+expression -> expression [COMMA expression]
+# operator
+expression -> expression [ANDOR expression]
+expression -> [NOT] expression
+expression -> expression [CMP expression]
+expression -> expression [PLUSMINUS expression]
+expression -> expression [MULDIVOST expression]
+expression -> expression [POW expression]
+# columnt
+expression -> COLNAME
+# function
+expression -> FUNCNAME
+# constant
+expression -> CONST
+# backets
+expression -> ( expression )
+# subquery
+expression -> ( query )
+
+parse_func {
+	scan_token(TOK_STRING, &value);
+	table_get_element(value, &saved);
+	if (saved)
+		parse_funcparam();
+}
+
+parse_expression {
+	union tree andor, comma;
+	parse_andor();
+	do {
+		
+	} while (scan_token(TOK_COMMA, &token));
+}
+

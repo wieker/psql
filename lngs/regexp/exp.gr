@@ -1,0 +1,32 @@
+linear root := expr;
+
+linear expr := linear;
+linear linear := linit [ atom ] kinit;
+
+linear atom := match repeater;
+select match := select bracket escaped symb;
+
+select select := rinit "[" not [ match ] "]" finit;
+select not := nots null;
+linear nots := "^";
+linear null := "";
+
+onenotsymb "\^+?*)}]({[," symb;
+escsymb "\^+?*)}]({[," escaped;
+
+linear bracket := "(" linear ")";
+
+select repeater := rrange star question plus null;
+linear star := "*";
+linear plus := "+";
+linear question := "?";
+linear rrange := "{" c "," c "}";
+select c := integer null;
+integer integer;
+
+linear rinit := "";
+linear finit := "";
+linear linit := "";
+linear kinit := "";
+
+

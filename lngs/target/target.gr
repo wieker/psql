@@ -1,0 +1,19 @@
+linear root := [ target ];
+
+linear target := tname tname "{"
+	andexpr
+"}";
+
+left andexpr := orexpr "&&";
+left orexpr := expr "||";
+
+select expr := subexpr atomexpr;
+linear subexpr := "(" andexpr ")";
+
+linear atomexpr := atom_base [ check ];
+linear check := "." chkname;
+linear atom_base := atomname;
+
+tstring tname;
+tstring chkname;
+tstring atomname;

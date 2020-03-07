@@ -1,0 +1,14 @@
+linear root := nodeop;
+select nodeop := assign;
+
+linear assign := lvalue "=" rvalue;
+select rvalue := new path;
+linear path := [step] element;
+linear path := element ".";
+
+linear new := "new" nodetype;
+select element := name number;
+tstring name;
+tnumber number;
+
+select lvalue := path;

@@ -1,0 +1,262 @@
+root {
+	\1
+	## C write_st("stop")
+}
+
+
+opop {
+	\1
+	## C write_st("dup")
+	## C write_st("down")
+}
+
+if {
+	## C enter_block()
+	
+	\1
+	
+	## C write_st("li")
+	## C load_mark("begin_if")
+	## C write_st("jnz")
+	
+	## C write_st("li")
+	## C load_mark("end_if")
+	## C write_st("jmp")
+	
+	## C set_mark("begin_if")
+	
+	\2
+	
+	## C set_mark("end_if")
+	## C leave_block()
+}
+
+while {
+	## C enter_block()
+	## C write_st("li")
+	## C load_mark("end_while")
+	## C write_st("jmp")
+	
+	## C set_mark("begin_while")
+	\2
+	
+	## C set_mark("end_while")
+	\1
+	
+	## C write_st("li")
+	## C load_mark("begin_while")
+	## C write_st("jnz")
+	
+	## C leave_block()
+}
+
+ostcomma {
+	## C write_st("down")
+	\1
+}
+
+assign {
+	\2
+	## C write_st("dup")
+	\1
+	## C write_st("store")
+}
+
+and {
+	## C write_st("lz")
+	## C write_st("ne")
+	\1
+	## C write_st("lz")
+	## C write_st("ne")
+	## C write_st("and")
+}
+
+or {
+	## C write_st("lz")
+	## C write_st("ne")
+	\1
+	## C write_st("lz")
+	## C write_st("ne")
+	## C write_st("or")
+}
+
+gg {
+linear not := [ nottok ] compare;
+tone nottok := "not";
+}
+
+
+
+equal {
+	\1
+	## C write_st("eq")
+}
+
+less {
+	\1
+	## C write_st("lt")
+}
+
+more {
+	\1
+	## C write_st("mt")
+}
+
+plus {
+	\1
+	## C write_st("add")
+}
+
+minus {
+	\1
+	## C write_st("sub")
+}
+
+mul {
+	\1
+	## C write_st("mul")
+}
+
+div {
+	\1
+	## C write_st("div")
+}
+
+qq {
+select rpow := pow lowvalue;
+linear pow := lowvalue "^" rpow;
+}
+
+zz {
+select lowvalue := brackets negative function name string integer;
+
+linear function := name "(" [ rvalue ] ")";
+
+quoted string;
+}
+
+integer {
+	## C write_st("li")
+	## C load_const( \V )
+}
+
+lvalue {
+	## C write_st("li")
+	## C load_local ( \V )
+	## C write_st("lea")
+}
+
+name {
+	## C write_st("li")
+	## C load_local ( \V )
+	## C write_st("lea")
+	## C write_st("load")
+}
+
+negative {
+	\1
+	## C write_st("neg")
+}
+
+
+
+old {
+while {
+	
+	
+	## C enter_block()
+	## C write_st("li")
+	## C load_mark("end_while")
+	## C write_st("jmp")
+	
+	## C set_mark("begin_while")
+	\2
+	
+	## C set_mark("end_while")
+	\1
+	
+	## C write_st("li")
+	## C load_mark("begin_while")
+	## C write_st("jnz")
+	
+	## C leave_block()
+\}
+
+integer {
+	## C write_st("li")
+	## C load_const( \V )
+\}
+
+equal {
+	\1
+	\2
+	## C write_st("eq")
+\}
+
+more {
+	\1
+	\2
+	## C write_st("mt")
+\}
+
+less {
+	\1
+	\2
+	## C write_st("lt")
+\}
+
+mul {
+	\1
+	\2
+	## C write_st("mul")
+\}
+
+rvalue {
+	## ARG load_local
+	## C write_st("lea") Load Executive Address
+	## C write_st("load")
+\}
+
+lvalue {
+	## ARG load_local
+	## C write_st("lea") Load Executive Address
+\}
+
+assign {
+	\1
+	\2
+	## C write_st("store") Remove address and keep value on top
+\}
+
+defun {
+	## ARG set_global_mark
+	## C enter_block()
+	## ARG load_frame_size
+	## C write_st("enter")
+	
+	\t
+	
+	## ARG load_frame_size
+	## C write_st("leave")
+	## C write_st("ret")
+	## C leave_block
+\}
+
+negative {
+	\1
+	## C write_st("neg")
+\}
+
+root {
+	\1
+	## C write_st("stop")
+\}
+
+plus {
+	\1
+\}
+
+minus {
+	\1
+\}
+}

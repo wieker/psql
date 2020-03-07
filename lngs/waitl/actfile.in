@@ -1,0 +1,103 @@
+def simple :
+# fail
+###
+(
+	echo dir
+	echo binary
+	echo lcd "/Volumes/ubuntu-video-afp/sorted_video/HD_Video/"
+	echo put '310\ to\ Yuma.m4v'
+	#echo lcd /Volumes/ubuntu-video-afp/sorted_video/AirPlay/
+	#echo put 'The\ Hobbit.avi'
+	#echo lcd /Volumes/ubuntu-video-afp/sorted_video/subtitles_embedded/dvdsub/
+	#echo put 'The\ Cat\ Returns\ (2002)\ -\ (Neko\ no\ Ongaeshi).mkv'
+	echo lcd /Volumes/ubuntu-video-afp/sorted_video/hardware
+	echo put 'Cinnamon.mp4'
+	echo lcd /Volumes/ubuntu-video-afp/sorted_video//avi/
+	echo put 'Yog.avi'
+) | ftp -n 10.0.2.29
+###
+
+def dir :
+# fail
+###
+(
+	echo dir
+) | ftp -n 10.0.2.8
+###
+
+
+def localin :
+# fail
+local ###
+(
+	echo dir
+) | ftp -n 10.0.2.8
+###
+
+
+
+rspawn "cd /Volumes/ubuntu-video-afp/sorted_video/AirPlay/"
+rspawn "ftp 10.0.2.8"
+rwait "Name"
+rsend "anonymous
+"
+rwait "assword:"
+rsend "
+"
+rwait "ftp>"
+rsend "ls
+"
+rwait "ftp>"
+rsend "put On\ the\ Road\ \(2012\)\ DVDRip\ H264-AC3-AVI\ Fr\ NL\ Subs.avi
+"
+rwait "ftp>"
+rsend "put pain\&gain_trailer_1080p.mov
+"
+rwait "ftp>"
+rsend "put Lana\ Del\ Rey\ -\ Born\ To\ Die.avi
+"
+rwait "ftp>"
+rsend "put OBLIVION_1080_trl.mp4
+"
+rwait "ftp>"
+rsend "put Mama.2013.D.BDRip.1080p.mkv
+"
+rwait "ftp>"
+rsend "ls
+"
+rwait "ftp>"
+
+
+
+
+rsend "mkdir upload
+"
+rwait "ftp>"
+rsend "put 4.mp4
+"
+rwait "ftp>"
+rsend "ls
+"
+rwait "ftp>"
+
+
+
+
+
+rspawn "cd upload"
+rwait "ftp>"
+rsend "mkdir upload
+"
+rwait "ftp>"
+rsend "rmdir upload
+"
+rwait "ftp>"
+rsend "rmdir dir
+"
+rwait "ftp>"
+rsend "rm 1.mp4
+"
+rwait "ftp>"
+rsend "put afterearth_trailer_1080p.srt
+"
+

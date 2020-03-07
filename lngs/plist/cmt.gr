@@ -1,0 +1,10 @@
+linear root := cmt;
+
+linear cmt := [ expr ];
+
+select expr := plus comment;
+stdbe "//" "
+" comment;
+
+linear plus := NUMBER "+" NUMBER;
+tnumber NUMBER;

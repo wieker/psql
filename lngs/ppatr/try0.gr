@@ -1,0 +1,30 @@
+
+linear crash :=  crash_line <small_cut> path_line;
+context crash := install;
+context crash := file;
+context crash := plugins;
+linear <syslog_line> crash_line := "Crash";
+context crash := left_cut;
+context_right crash := right_cut;
+
+linear <syslog_line> path_line := url;
+
+linear <syslog_line> file := "Opened" url;
+
+linear <apt_line> install := "Installing ProgName" "(" (regexp version := "(\d+)\.(\d+)" ")";
+context install := pkgmgrstart;
+linear <apt_line> pkgmgrstart := "Log started" datetime;
+
+linear apt_line := line;
+linear line := [ <misc> ] LEND;
+
+linear <line> syslog_line := datetime;
+context syslog_line := LBEGIN;
+
+exec crash {
+	
+}
+
+exec file {
+	
+}

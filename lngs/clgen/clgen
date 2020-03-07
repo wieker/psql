@@ -1,0 +1,26 @@
+
+1. screen
+2. view
+3. action
+4. object
+
+screen => view, action
+object => view
+
+game screen:
+1. action = drag
+if enabled => done
+if disabled => fail
+
+ADL:
+пройти уровень (параметр: completed/passed/fail)
+заработать банан (параметр: качество банана)
+дать ответ (параметр: верно/неверно)
+переместить картинку (параметр: A, B)
+
+select bug_field := environment steps actual expected reproduction notes;
+linear steps := [ step ];
+
+linear step := action ;
+
+

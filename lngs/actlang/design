@@ -1,0 +1,14 @@
+
+target: precondition
+action
+
+
+precondition: 1. file precondition - exists, date comparable
+2. boolean precondition
+3. wait precondition
+4. OR precondition - labirints
+5. remote / tty expect
+
+
+remote make
+
